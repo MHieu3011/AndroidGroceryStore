@@ -1,8 +1,5 @@
 package com.ptit.androidgrocerystore.api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -10,18 +7,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public interface UserCreateAPI {
+public interface APICreateUser extends BaseAPI{
 
-    Gson gson = new GsonBuilder()
-            .excludeFieldsWithoutExposeAnnotation()
-            .serializeNulls()
-            .create();
-
-    UserCreateAPI api = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.195:12509")
+    APICreateUser api = new Retrofit.Builder()
+            .baseUrl(URI)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(UserCreateAPI.class);
+            .create(APICreateUser.class);
 
     @POST("/user")
     Call<Response<String>> create(@Query("username") String userName,
