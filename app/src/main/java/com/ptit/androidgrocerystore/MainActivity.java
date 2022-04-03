@@ -37,21 +37,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void testCreateUserAPI() {
-        String username = "username";
+        String username = "test4";
         String full_name = "full_name";
         String password = "password";
         String address = "address";
-        UserCreateAPI.api.create(username, full_name, password, address).enqueue(new Callback<String>() {
+        UserCreateAPI.api.create(username, full_name, password, address).enqueue(new Callback<Response<String>>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Toast.makeText(getApplicationContext(), "Create success", Toast.LENGTH_LONG).show();
-                Log.i("onResponse: ", response.message());
+            public void onResponse(Call<Response<String>> call, Response<Response<String>> response) {
+                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Create error", Toast.LENGTH_LONG).show();
-                Log.e("ERROR: ", t.getMessage());
+            public void onFailure(Call<Response<String>> call, Throwable t) {
+                Toast.makeText(MainActivity.this,"Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
