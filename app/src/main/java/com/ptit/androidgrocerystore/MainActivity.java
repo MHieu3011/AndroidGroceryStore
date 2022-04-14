@@ -1,5 +1,6 @@
 package com.ptit.androidgrocerystore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ptit.androidgrocerystore.api.APIFindAllItem;
 import com.ptit.androidgrocerystore.api.APICreateUser;
+import com.ptit.androidgrocerystore.api.APILogin;
 import com.ptit.androidgrocerystore.response.ItemResponse;
+import com.ptit.androidgrocerystore.response.UserResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,10 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonLogIn;
     private EditText editTextUsername;
+    private EditText editTextPassword;
 
     private void initData() {
         buttonLogIn = findViewById(R.id.buttonLogIn);
         editTextUsername = findViewById(R.id.editTextUsername);
+        editTextPassword = findViewById(R.id.editTextPassword);
     }
 
     @Override
@@ -35,43 +40,33 @@ public class MainActivity extends AppCompatActivity {
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                APIFindAllItem.api.findAll().enqueue(new Callback<ItemResponse>() {
+                String userName = editTextUsername.getText().toString();
+                String password = editTextPassword.getText().toString();
+                APILogin.api.login(userName, password).enqueue(new Callback<UserResponse>() {
                     @Override
-                    public void onResponse(Call<ItemResponse> call, Response<ItemResponse> response) {
-                        ItemResponse itemResponse = response.body();
-                        Toast.makeText(MainActivity.this, "Success: " + itemResponse.getItems().get(0).getName(), Toast.LENGTH_SHORT).show();
-                        editTextUsername.setText(itemResponse.getStatus() + "\n"
-                                + itemResponse.getMessage() + "\n"
-                                + itemResponse.getCode() + "\n"
-                                + itemResponse.getItems().get(0).getCode() + " " + itemResponse.getItems().get(0).getFromDate());
+                    public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                        UserResponse userResponse = response.body();
+                        if (userResponse.getStatus() == 1) {
+                            Toast.makeText(MainActivity.this, "success", Toast.LENGTH_LONG).show();
+                            Intent intent;
+                            if (userResponse.getUser().getRole() == 1) {
+                                intent = new Intent(MainActivity.this, AdminActivity.class);
+                            } else {
+                                intent = new Intent(MainActivity.this, UserActivity.class);
+                            }
+                            intent.putExtra("userResponse", userResponse);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "username or password incorrect", Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override
-                    public void onFailure(Call<ItemResponse> call, Throwable t) {
+                    public void onFailure(Call<UserResponse> call, Throwable t) {
                         Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
             }
         });
     }
-
-    private void testCreateUserAPI() {
-        String username = "test6";
-        String full_name = "full_name";
-        String password = "password";
-        String address = "address";
-        APICreateUser.api.create(username, full_name, password, address).enqueue(new Callback<Response<String>>() {
-            @Override
-            public void onResponse(Call<Response<String>> call, Response<Response<String>> response) {
-                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onFailure(Call<Response<String>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-
 }

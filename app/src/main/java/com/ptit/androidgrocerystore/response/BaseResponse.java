@@ -3,7 +3,9 @@ package com.ptit.androidgrocerystore.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public abstract class BaseResponse {
+import java.io.Serializable;
+
+public abstract class BaseResponse implements Serializable {
 
     @Expose
     @SerializedName("status")
