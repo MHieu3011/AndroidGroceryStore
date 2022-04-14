@@ -1,4 +1,4 @@
-package com.ptit.androidgrocerystore.fragment.user;
+package com.ptit.androidgrocerystore.fragment.admin;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +19,6 @@ public class InfoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_info_user, container, false);
+        return inflater.inflate(R.layout.fragment_info_admin, container, false);
     }
 }

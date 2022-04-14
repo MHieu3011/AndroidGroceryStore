@@ -3,12 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/activity_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/activity_user.xml" value="0.20416666666666666" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_bill_user.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_chart_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_customer_user.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_info.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_info_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_item_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_logout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_store_house_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_store_house_user.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/layout/fragment_user_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/menu/menu_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Ki2_Nam4/AndroidGroceryStore/app/src/main/res/menu/menu_user.xml" value="0.20416666666666666" />
       </map>
     </option>
