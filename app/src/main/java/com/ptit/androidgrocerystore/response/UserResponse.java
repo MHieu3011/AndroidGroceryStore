@@ -6,7 +6,7 @@ import com.ptit.androidgrocerystore.model.User;
 
 import java.io.Serializable;
 
-public class UserResponse extends BaseResponse implements Serializable {
+public class UserResponse extends BaseResponse {
 
     @Expose
     @SerializedName("data")

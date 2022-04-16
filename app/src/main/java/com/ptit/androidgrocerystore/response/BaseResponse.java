@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public abstract class BaseResponse implements Serializable {
+public abstract class BaseResponse {
 
     @Expose
     @SerializedName("status")

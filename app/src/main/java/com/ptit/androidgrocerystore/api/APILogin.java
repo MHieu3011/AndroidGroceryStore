@@ -18,5 +18,6 @@ public interface APILogin extends BaseAPI {
 
     @GET("/user/login")
     Call<UserResponse> login(@Query("user_name") String userName,
-                             @Query("password") String password);
+                             @Query("password") String password
+    );
 }

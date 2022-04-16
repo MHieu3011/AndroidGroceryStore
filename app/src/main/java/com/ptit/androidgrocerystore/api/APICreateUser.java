@@ -19,5 +19,6 @@ public interface APICreateUser extends BaseAPI{
     Call<Response<String>> create(@Query("username") String userName,
                           @Query(("full_name")) String fullName,
                           @Query("password") String password,
-                          @Query("address") String address);
+                          @Query("address") String address
+    );
 }
