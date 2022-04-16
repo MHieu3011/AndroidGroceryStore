@@ -24,9 +24,9 @@ public class ViewPagerUserAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new CustomerFragment();
-            case 1:
                 return new BillFragment();
+            case 1:
+                return new CustomerFragment();
             case 2:
                 return new StoreHouseFragment();
             case 3:

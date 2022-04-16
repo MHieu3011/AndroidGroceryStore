@@ -2,14 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menuBill"
+        android:icon="@drawable/ic_bill"
+        android:title="Bill" />
+
+    <item
         android:id="@+id/menuCustomer"
         android:icon="@drawable/ic_people"
         android:title="Customer" />
 
-    <item
-        android:id="@+id/menuBill"
-        android:icon="@drawable/ic_bill"
-        android:title="Bill" />
 
     <item
         android:id="@+id/menuStoreHouse"

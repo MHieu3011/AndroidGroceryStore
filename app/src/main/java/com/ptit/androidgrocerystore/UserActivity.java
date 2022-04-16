@@ -37,10 +37,10 @@ public class UserActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        bottomNavigationViewUser.getMenu().findItem(R.id.menuCustomer).setChecked(true);
+                        bottomNavigationViewUser.getMenu().findItem(R.id.menuBill).setChecked(true);
                         break;
                     case 1:
-                        bottomNavigationViewUser.getMenu().findItem(R.id.menuBill).setChecked(true);
+                        bottomNavigationViewUser.getMenu().findItem(R.id.menuCustomer).setChecked(true);
                         break;
                     case 2:
                         bottomNavigationViewUser.getMenu().findItem(R.id.menuStoreHouse).setChecked(true);
@@ -62,10 +62,10 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menuCustomer:
+                    case R.id.menuBill:
                         viewPagerUser.setCurrentItem(0);
                         break;
-                    case R.id.menuBill:
+                    case R.id.menuCustomer:
                         viewPagerUser.setCurrentItem(1);
                         break;
                     case R.id.menuStoreHouse:
