@@ -6,8 +6,9 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
-public interface APIFindAllItem extends BaseAPI{
+public interface APIFindAllItem extends BaseAPI {
 
     APIFindAllItem api = new Retrofit.Builder()
             .baseUrl(URI)
@@ -16,5 +17,7 @@ public interface APIFindAllItem extends BaseAPI{
             .create(APIFindAllItem.class);
 
     @GET("/item")
-    Call<ItemResponse> findAll();
+    Call<ItemResponse> findAll(
+            @Query("keyword") String keyword
+    );
 }
