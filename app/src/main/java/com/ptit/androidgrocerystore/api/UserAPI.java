@@ -47,4 +47,7 @@ public interface UserAPI extends BaseAPI {
 
     @DELETE("/user")
     Call<UserResponse> delete(@Query("user_name") String userName);
+
+    @GET("/user/search")
+    Call<UserListResponse> searchByUsername(@Query("key") String key);
 }

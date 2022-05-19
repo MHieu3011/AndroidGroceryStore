@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +32,7 @@ public class UserFragment extends Fragment implements UserAdapter.UserItemListen
     private UserAdapter adapter;
     private RecyclerView recyclerViewListUser;
     private FloatingActionButton floatingActionButton;
+    private SearchView searchView;
 
     @Nullable
     @Override
@@ -42,6 +45,7 @@ public class UserFragment extends Fragment implements UserAdapter.UserItemListen
         super.onViewCreated(view, savedInstanceState);
         recyclerViewListUser = view.findViewById(R.id.recyclerViewListUser);
         floatingActionButton = view.findViewById(R.id.floatingActionButton);
+        searchView = view.findViewById(R.id.searchView);
         adapter = new UserAdapter();
         UserAPI.api.findAll().enqueue(new Callback<UserListResponse>() {
             @Override
@@ -64,6 +68,29 @@ public class UserFragment extends Fragment implements UserAdapter.UserItemListen
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String key) {
+                UserAPI.api.searchByUsername(key).enqueue(new Callback<UserListResponse>() {
+                    @Override
+                    public void onResponse(Call<UserListResponse> call, Response<UserListResponse> response) {
+                        adapter.setUserList(response.body().getUserList());
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserListResponse> call, Throwable t) {
+                        Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG).show();
+                    }
+                });
+                return true;
             }
         });
     }
