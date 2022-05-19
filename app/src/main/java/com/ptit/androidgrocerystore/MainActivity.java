@@ -10,10 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ptit.androidgrocerystore.api.APIFindAllItem;
-import com.ptit.androidgrocerystore.api.APICreateUser;
 import com.ptit.androidgrocerystore.api.APILogin;
-import com.ptit.androidgrocerystore.response.ItemResponse;
 import com.ptit.androidgrocerystore.response.UserResponse;
 
 import retrofit2.Call;
