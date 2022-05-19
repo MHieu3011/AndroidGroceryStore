@@ -41,15 +41,12 @@ public class AdminActivity extends AppCompatActivity {
                         bottomNavigationViewAdmin.getMenu().findItem(R.id.menuUser).setChecked(true);
                         break;
                     case 1:
-                        bottomNavigationViewAdmin.getMenu().findItem(R.id.menuItem).setChecked(true);
-                        break;
-                    case 2:
                         bottomNavigationViewAdmin.getMenu().findItem(R.id.menuStoreHouseAdmin).setChecked(true);
                         break;
-                    case 3:
+                    case 2:
                         bottomNavigationViewAdmin.getMenu().findItem(R.id.menuChart).setChecked(true);
                         break;
-                    case 4:
+                    case 3:
                         bottomNavigationViewAdmin.getMenu().findItem(R.id.menuInfoAdmin).setChecked(true);
                         break;
                 }
@@ -69,17 +66,14 @@ public class AdminActivity extends AppCompatActivity {
                     case R.id.menuUser:
                         viewPagerAdmin.setCurrentItem(0);
                         break;
-                    case R.id.menuItem:
+                    case R.id.menuStoreHouseAdmin:
                         viewPagerAdmin.setCurrentItem(1);
                         break;
-                    case R.id.menuStoreHouseAdmin:
+                    case R.id.menuChart:
                         viewPagerAdmin.setCurrentItem(2);
                         break;
-                    case R.id.menuChart:
-                        viewPagerAdmin.setCurrentItem(3);
-                        break;
                     case R.id.menuInfoAdmin:
-                        viewPagerAdmin.setCurrentItem(4);
+                        viewPagerAdmin.setCurrentItem(3);
                         break;
                 }
                 return false;

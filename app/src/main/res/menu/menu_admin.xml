@@ -7,11 +7,6 @@
         android:title="User" />
 
     <item
-        android:id="@+id/menuItem"
-        android:icon="@drawable/ic_item"
-        android:title="Item" />
-
-    <item
         android:id="@+id/menuStoreHouseAdmin"
         android:icon="@drawable/ic_storehouse"
         android:title="Item" />

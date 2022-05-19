@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:gravity="center"
-        android:text="Fragment Bill"
+        android:text="Thêm hóa đơn"
         android:textSize="30dp"
         android:textStyle="bold|italic" />
 </FrameLayout>
